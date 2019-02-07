@@ -1,17 +1,29 @@
 {
-  "name": "",
+  "name": "Reservation Module",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Paul Do",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
+    "express": "^4.16.4",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
+    "babel-loader": "^8.0.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "mysql": "^2.16.0",
+    "path": "^0.12.7",
+    "request": "^2.88.0"
   }
 }
