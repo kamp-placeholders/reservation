@@ -1,5 +1,5 @@
 {
-  "name": "Reservation Module",
+  "name": "",
   "version": "",
   "description": "",
   "author": "Paul Do",
@@ -7,13 +7,19 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "webpack --watch",
+    "react-dev": "nodemon server/index.js"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
