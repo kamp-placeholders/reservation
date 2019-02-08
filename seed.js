@@ -21,8 +21,8 @@ for (let i = 0; i < 100; i++){
 var start = new Date("02/10/2019");
 var end = new Date("02/24/2019");
 
-function pad(n) {
-    return n<10 ? '0'+n : n;
+function zeroPadding(num) {
+    return num < 10 ? '0' + num : num;
 }
 
 while(start <= end){
@@ -30,7 +30,7 @@ while(start <= end){
    let day = start.getDate();
    let month = start.getMonth() + 1;
    let year = start.getFullYear();
-   var formatDate = pad(year) + '-' + pad(month) + '-' + pad(day);
+   var formatDate = zeroPadding(year) + '-' + zeroPadding(month) + '-' + zeroPadding(day);
    
    // 200 queries each day, 2 queries for each restaurant
    for (let i = 1; i < 101; i++){

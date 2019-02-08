@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/api/reservations', (req, res) => {
   dbQuery.getTimes()
     .then((data) => {
+      console.log(data)
       res.send(data);
     })
     .catch((err) => {

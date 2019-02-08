@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import * as Styles from './styled.js';
 
 class Reservation extends React.Component {
   constructor(props){
@@ -24,9 +25,28 @@ class Reservation extends React.Component {
 
   render(){
     return(
-      <div>
-        Hello from React!
-      </div>
+      <Styles.Container>
+        <Styles.Header>
+          <Styles.ResWriting>
+          <h3>Make a reservation</h3>
+          </Styles.ResWriting>
+        </Styles.Header>
+
+        do you come here often?
+
+        <Styles.subContainer>
+          <Styles.funcRow>
+
+            <Styles.partyHolder>
+              <Styles.partyFont>Party Size</Styles.partyFont>
+              <Styles.partySelect>select placeholder</Styles.partySelect>
+            </Styles.partyHolder>
+
+            <Styles.datetimeHolder>Date tesjfigbrfeondb</Styles.datetimeHolder>
+            
+          </Styles.funcRow>
+        </Styles.subContainer>
+      </Styles.Container>
     )
   }
 };

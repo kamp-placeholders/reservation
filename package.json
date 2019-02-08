@@ -10,7 +10,8 @@
   "scripts": {
     "start": "webpack --watch",
     "react-dev": "nodemon server/index.js",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "test": "jest"
   },
   "dependencies": {
     "bluebird": "^3.5.3",
@@ -33,7 +34,10 @@
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
     "babel-loader": "^8.0.5",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.1.0",
     "mysql": "^2.16.0",
     "path": "^0.12.7",
     "request": "^2.88.0"
