@@ -26,25 +26,52 @@ class Reservation extends React.Component {
   render(){
     return(
       <Styles.Container>
+        {/* header section */}
         <Styles.Header>
           <Styles.ResWriting>
           <h3>Make a reservation</h3>
           </Styles.ResWriting>
         </Styles.Header>
 
-        do you come here often?
-
+        {/* everything below Make a reservation header */}
         <Styles.subContainer>
+          {/* functional inputs - party, date, time */}
           <Styles.funcRow>
 
             <Styles.partyHolder>
               <Styles.partyFont>Party Size</Styles.partyFont>
-              <Styles.partySelect>select placeholder</Styles.partySelect>
+              <Styles.partySelect>Party dropdown goes here</Styles.partySelect>
             </Styles.partyHolder>
 
-            <Styles.datetimeHolder>Date tesjfigbrfeondb</Styles.datetimeHolder>
+            {/* date and time are held in their own div in the row */}
+            <Styles.datetimeHolder>
+              <Styles.dateHolder>
+                <Styles.dateFont>Date</Styles.dateFont>
+                <Styles.dateDropdown>Dropdown goes here</Styles.dateDropdown>
+              </Styles.dateHolder>
+
+              <Styles.timeHolder>
+                <Styles.timeFont>Time</Styles.timeFont>
+                <Styles.timeDropDown>Time dropdown goes here</Styles.timeDropDown>
+              </Styles.timeHolder>
+            </Styles.datetimeHolder>
             
           </Styles.funcRow>
+
+          {/* button */}
+          <Styles.buttonHolder>
+            <Styles.findTable>
+              <span>Find a Table</span>
+            </Styles.findTable>
+          </Styles.buttonHolder>
+
+        {/* Booked however many times - random */}
+        <Styles.bookHolder>
+          <Styles.graphic>
+          </Styles.graphic>
+          <Styles.bookFont>Booked 60 times today</Styles.bookFont>
+        </Styles.bookHolder>
+
         </Styles.subContainer>
       </Styles.Container>
     )
