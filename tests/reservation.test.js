@@ -11,6 +11,3 @@ it('renders on page without crashing', () => {
   ReactDOM.render(<Reservation />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
-
-
-
