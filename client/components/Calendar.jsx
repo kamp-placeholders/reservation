@@ -11,25 +11,50 @@ class Calendar extends React.Component {
       currDate: new Date()
     }
     this.renderMonth = this.renderMonth.bind(this);
+    this.lastMonth = this.lastMonth.bind(this);
+    this.nextMonth = this.nextMonth.bind(this);
+    this.renderDaysOfWeek = this.renderDaysOfWeek.bind(this);
   }
 
   renderMonth(){
     // renders header section month & buttons
     return(
-      <div>
-        <div>Last month button placeholder</div>
-        <div>{moment(this.state.currMonth).format("MMMM YYYY")}</div>
-        <div>Next Month placeholder</div>
-      </div>
+      <Styles.calHeader>
+        <Styles.headerLeft onClick={() => this.lastMonth()}></Styles.headerLeft>
+        <Styles.monthFont>{moment(this.state.currMonth).format("MMMM YYYY")}</Styles.monthFont>
+        <Styles.headerRight onClick={() => {this.nextMonth()}}></Styles.headerRight>
+      </Styles.calHeader>
+    )
+  }
+
+  renderDaysOfWeek(){
+    return(
+      <Styles.weekContainer>
+        <Styles.weekDay>Sun</Styles.weekDay>
+        <Styles.weekDay>Mon</Styles.weekDay>
+        <Styles.weekDay>Tue</Styles.weekDay>
+        <Styles.weekDay>Wed</Styles.weekDay>
+        <Styles.weekDay>Thu</Styles.weekDay>
+        <Styles.weekDay>Fri</Styles.weekDay>
+        <Styles.weekDay>Sat</Styles.weekDay>
+      </Styles.weekContainer>
     )
   }
 
   lastMonth(){
     // TODO
+    const newMonth = moment(this.state.currMonth).subtract(1, 'month').format("MMMM YYYY");
+    this.setState({
+      currMonth: newMonth
+    })
   }
 
   nextMonth(){
     // TODO
+    const newMonth = moment(this.state.currMonth).add(1, 'month').format("MMMM YYYY");
+    this.setState({
+      currMonth: newMonth
+    })
   }
 
   selectDate(){
@@ -40,7 +65,7 @@ class Calendar extends React.Component {
     return(
       <Styles.calContainer>
         <div>{this.renderMonth()}</div>
-        <div>Days of Week placeholder</div>
+        <div>{this.renderDaysOfWeek()}</div>
         <div>Calendar cells</div>
       </Styles.calContainer>
     )

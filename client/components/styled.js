@@ -187,6 +187,9 @@ export const bookFont = styled.div`
 export const calContainer = styled.div`
   position: absolute;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   // width & color subject to change 
   width: 65%;
   background-color: #f1f2f4;
@@ -195,5 +198,69 @@ export const calContainer = styled.div`
 `
 
 export const calHeader = styled.div`
+  display: flex;
+  height: 34px;
+  margin: 15px 5px;
+  font-weight: 700;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+`
+export const monthFont = styled.span`
+  margin-left: 15px;
+  margin-right: 15px;
+`
+
+export const headerLeft = styled.div`
+  height: 32px;
+  width: 32px;
+  transform: scaleX(-1);
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+  viewBox='0 0 5.24 8.07'%3E%3Cg%3E%3Cpath style='fill:%23338' 
+  d='M5.09 3.68L4.39 3 1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L2.62 4 .15 6.51a.5.5 0 0 0 0 
+  .71l.71.71a.5.5 0 0 0 .71 0L4.39 5.1l.71-.71a.5.5 0 0 0-.01-.71z'/%3E%3C/g%3E%3C/svg%3E");
+  box-sizing: border-box;
+  margin: 10px;
+  margin-left: 25px;
+`
+
+export const headerRight = styled.div`
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+  viewBox='0 0 5.24 8.07'%3E%3Cg%3E%3Cpath style='fill:%23338' 
+  d='M5.09 3.68L4.39 3 1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L2.62 4 .15 6.51a.5.5 0 0 0 0 
+  .71l.71.71a.5.5 0 0 0 .71 0L4.39 5.1l.71-.71a.5.5 0 0 0-.01-.71z'/%3E%3C/g%3E%3C/svg%3E");
+  box-sizing: border-box;
+  margin: 10px;
+  margin-right: 25px;
+`
+export const weekContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  margin-right: 5px;
+  justify-content: space-evenly;
+  line-height: 16px;
+`
+export const weekDay = styled.div`
+  font-size: .875rem;
+  text-align: center;
+  line-height: 16px;
+  padding: 3px;
+  color: #2d333f;
+`
+
+export const cellHolder = styled.div`
   
 `
