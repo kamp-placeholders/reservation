@@ -184,6 +184,16 @@ export const bookFont = styled.div`
 // CALENDAR CSS STYLING BELOW //
 ////////////////////////////////
 
+export const calContainer = styled.div`
+  position: absolute;
+  z-index: 2;
+  // width & color subject to change 
+  width: 65%;
+  background-color: #f1f2f4;
+  -webkit-font-smoothing: anti-aliased;
+  border: 1px solid #d8d9db;
+`
 
-
-
+export const calHeader = styled.div`
+  
+`
