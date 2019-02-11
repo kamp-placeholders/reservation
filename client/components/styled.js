@@ -63,7 +63,7 @@ export const partyFont = styled.div`
 `
 
 // IN PROGRESS
-export const partySelect = styled.div`
+export const partySelect = styled.select`
   display: flex;
   box-sizing: border-box;
   position: absolute;
@@ -71,6 +71,16 @@ export const partySelect = styled.div`
   font-weight: 400;
   padding-left: .20rem;
   padding-top: 8px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: block;
+  font-family: inherit;
+  background-color: #fff;
+  height: 35px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  width: 100%;
 `
 
 // IN PROGRESS
@@ -79,7 +89,7 @@ export const datetimeHolder = styled.div`
   margin-left: .17rem;
   flex: 1 100%;
   -webkit-box-flex: 1;
-  margin-top: .45rem;
+  margin-top: 18px;
 `
 
 export const dateHolder = styled.div`
@@ -103,6 +113,7 @@ export const dateDropdown = styled.div`
   border-bottom: 1px solid #d8d9db;
   padding-top: .15rem;
   border-right: none;
+  margin-top: 7px;
 `
 // MAY NEED ANOTHER FONT DIV FOR INSIDE THE BOX
 
@@ -130,11 +141,12 @@ export const timeDropDown = styled.div`
   box-sizing: border-box;
   border-bottom: 1px solid #d8d9db;
   padding-top: .15rem;
+  margin-top: 7px;
 `
 export const buttonHolder = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
+  margin-top: 15px;\
 `
 
 export const findTable = styled.button`
@@ -146,6 +158,7 @@ export const findTable = styled.button`
   margin: 8px 15px;
   border-radius: 3px;
   font-size: 1rem;
+  cursor: pointer;
 `
 
 export const bookHolder = styled.div`
@@ -166,3 +179,11 @@ export const bookFont = styled.div`
   font-weight: 550;
   margin-left: 8px;
 `
+
+////////////////////////////////
+// CALENDAR CSS STYLING BELOW //
+////////////////////////////////
+
+
+
+
