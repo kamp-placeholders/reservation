@@ -70,6 +70,10 @@ class Reservation extends React.Component {
     })
   }
 
+  availabilityRender(){
+    // TO-DO
+  }
+
   render(){
     return(
       <Styles.Container>

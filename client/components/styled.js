@@ -49,7 +49,7 @@ export const partyHolder = styled.div`
   height: 55px;
   padding-bottom: 0.25rem;
   padding-top: 0.35rem;
-  border-bottom: 1px solid #d8d9db;
+  
   flex: 1 50%;
   margin-right: 15px;
   margin-left: 15px;
@@ -79,6 +79,8 @@ export const partySelect = styled.select`
   background-color: #fff;
   height: 35px;
   border-radius: 0;
+  border-bottom: 1px solid #d8d9db;
+  padding-bottom: 8px;
   -webkit-appearance: none;
   width: 95%;
   &:hover {
@@ -326,4 +328,20 @@ export const uniqDay = styled.div`
     border: 1px solid #da3743;
   }
   cursor: pointer;
+`
+
+export const uniqDaySameMonth = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  cursor: pointer;
+  background-color: #fff;
 `
