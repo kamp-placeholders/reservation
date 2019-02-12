@@ -49,7 +49,7 @@ export const partyHolder = styled.div`
   height: 55px;
   padding-bottom: 0.25rem;
   padding-top: 0.35rem;
-  border-bottom: 1px solid #d8d9db;
+  
   flex: 1 50%;
   margin-right: 15px;
   margin-left: 15px;
@@ -63,7 +63,7 @@ export const partyFont = styled.div`
 `
 
 // IN PROGRESS
-export const partySelect = styled.div`
+export const partySelect = styled.select`
   display: flex;
   box-sizing: border-box;
   position: absolute;
@@ -71,6 +71,24 @@ export const partySelect = styled.div`
   font-weight: 400;
   padding-left: .20rem;
   padding-top: 8px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: block;
+  font-family: inherit;
+  background-color: #fff;
+  height: 35px;
+  border-radius: 0;
+  border-bottom: 1px solid #d8d9db;
+  padding-bottom: 8px;
+  -webkit-appearance: none;
+  width: 95%;
+  &:hover {
+    border-bottom: 2px solid #da3743;
+  };
+  &:focus {
+    border-bottom: 2px solid #da3743;
+  };
 `
 
 // IN PROGRESS
@@ -79,7 +97,7 @@ export const datetimeHolder = styled.div`
   margin-left: .17rem;
   flex: 1 100%;
   -webkit-box-flex: 1;
-  margin-top: .45rem;
+  margin-top: 18px;
 `
 
 export const dateHolder = styled.div`
@@ -103,6 +121,13 @@ export const dateDropdown = styled.div`
   border-bottom: 1px solid #d8d9db;
   padding-top: .15rem;
   border-right: none;
+  margin-top: 7px;
+  &:hover {
+    border-bottom: 2px solid #da3743;
+  };
+  &:focus {
+    border-bottom: 2px solid #da3743;
+  };
 `
 // MAY NEED ANOTHER FONT DIV FOR INSIDE THE BOX
 
@@ -122,14 +147,28 @@ export const timeFont = styled.div`
   padding-bottom: .32rem;
 `
 
-export const timeDropDown = styled.div`
+export const timeDropDown = styled.select`
   cursor: pointer;
   position: relative;
   height: 35px;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid #d8d9db;
   padding-top: .15rem;
+  border: none;
+  margin-top: 7px;
+  border-bottom: 1px solid #d8d9db;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border-radius: 0;
+  padding-left: .20rem;
+  font-size: 16px;
+  font-weight: 400;
+  &:hover {
+    border-bottom: 2px solid #da3743;
+  };
+  &:focus {
+    border-bottom: 2px solid #da3743;
+  };
 `
 export const buttonHolder = styled.div`
   display: flex;
@@ -146,6 +185,10 @@ export const findTable = styled.button`
   margin: 8px 15px;
   border-radius: 3px;
   font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #e15b64;
+  }
 `
 
 export const bookHolder = styled.div`
@@ -165,4 +208,193 @@ export const bookFont = styled.div`
   line-height: 20px;
   font-weight: 550;
   margin-left: 8px;
+`
+
+////////////////////////////////
+// CALENDAR CSS STYLING BELOW //
+////////////////////////////////
+
+export const calContainer = styled.div`
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // width & color subject to change 
+  width: 96%;
+  background-color: #f1f2f4;
+  -webkit-font-smoothing: anti-aliased;
+  border: 1px solid #d8d9db;
+  justify-content: center;
+`
+
+export const calHeader = styled.div`
+  display: flex;
+  height: 34px;
+  margin: 15px 5px;
+  font-weight: 700;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+`
+export const monthFont = styled.span`
+  margin-left: 15px;
+  margin-right: 15px;
+`
+
+export const headerLeft = styled.div`
+  height: 32px;
+  width: 32px;
+  transform: scaleX(-1);
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+  viewBox='0 0 5.24 8.07'%3E%3Cg%3E%3Cpath style='fill:%23338' 
+  d='M5.09 3.68L4.39 3 1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L2.62 4 .15 6.51a.5.5 0 0 0 0 
+  .71l.71.71a.5.5 0 0 0 .71 0L4.39 5.1l.71-.71a.5.5 0 0 0-.01-.71z'/%3E%3C/g%3E%3C/svg%3E");
+  box-sizing: border-box;
+  margin: 10px;
+  margin-left: 25px;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid #da3743;
+  }
+`
+
+export const headerLeftPresent = styled.div`
+  height: 32px;
+  width: 32px;
+  transform: scaleX(-1);
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+    viewBox='0 0 5.24 8.07'%3E%3Cg%3E%3Cpath style='fill:%23E1E1E1' d='M5.09 3.68L4.39 3 
+    1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L2.62 4 .15 6.51a.5.5 0 0 0 0 
+    .71l.71.71a.5.5 0 0 0 .71 0L4.39 5.1l.71-.71a.5.5 0 0 0-.01-.71z'/%3E%3C/g%3E%3C/svg%3E");
+  box-sizing: border-box;
+  margin: 10px;
+  margin-left: 25px;
+  cursor: default;
+  pointer-events: none;
+`
+
+export const headerRight = styled.div`
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+  viewBox='0 0 5.24 8.07'%3E%3Cg%3E%3Cpath style='fill:%23338' 
+  d='M5.09 3.68L4.39 3 1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L2.62 4 .15 6.51a.5.5 0 0 0 0 
+  .71l.71.71a.5.5 0 0 0 .71 0L4.39 5.1l.71-.71a.5.5 0 0 0-.01-.71z'/%3E%3C/g%3E%3C/svg%3E");
+  box-sizing: border-box;
+  margin: 10px;
+  margin-right: 25px;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid #da3743;
+  }
+`
+export const weekContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  margin-right: 5px;
+  justify-content: space-evenly;
+  line-height: 100px;
+`
+export const weekDay = styled.div`
+  font-size: .875rem;
+  text-align: center;
+  line-height: 16px;
+  padding: 3px;
+  color: #2d333f;
+`
+
+// IN MAJOR PROGRESS
+export const cellHolder = styled.div`
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  margin-bottom: 35px
+  width: 90%;
+`
+// IN MAJOR PROGRESS
+export const weeks = styled.div`
+  display: table-row;
+  line-height: 70px;
+`
+
+export const uniqDay = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  cursor: pointer;
+`
+export const uniqDayPast = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  color: #d8d9db;
+  pointer-events: none;
+`
+
+export const uniqDaySameMonth = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  cursor: pointer;
+  background-color: #fff;
+`
+
+export const uniqDaySameMonthPast = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  cursor: pointer;
+  background-color: #fff;
+  color: #d8d9db;
+  pointer-events: none;
 `
