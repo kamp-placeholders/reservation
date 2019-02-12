@@ -2,11 +2,11 @@ import React from 'react';
 import * as Styles from './styled.js';
 import moment from 'moment';
 
-const TimeDropdown = () => {
+const TimeDropdown = (props) => {
 
   return(
     <div>
-      <Styles.timeDropDown>
+      <Styles.timeDropDown onChange={(e) => {props.timeHandler(e)}}>
         <option value="00:00:00">12:00 AM</option>
         <option value="00:30:00">12:30 AM</option>
         <option value="01:00:00">1:00 AM</option>
@@ -25,7 +25,7 @@ const TimeDropdown = () => {
         <option value="07:30:00">7:30 AM</option>
         <option value="08:00:00">8:00 AM</option>
         <option value="08:30:00">8:30 AM</option>
-        <option value="09:00:00">9:00 AM</option>
+        <option selected value="09:00:00">9:00 AM</option>
         <option value="09:30:00">9:30 AM</option>
         <option value="10:00:00">10:00 AM</option>
         <option value="10:30:00">10:30 AM</option>

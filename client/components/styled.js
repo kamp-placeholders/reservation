@@ -80,7 +80,13 @@ export const partySelect = styled.select`
   height: 35px;
   border-radius: 0;
   -webkit-appearance: none;
-  width: 100%;
+  width: 95%;
+  &:hover {
+    border-bottom: 2px solid #da3743;
+  };
+  &:focus {
+    border-bottom: 2px solid #da3743;
+  };
 `
 
 // IN PROGRESS
@@ -114,6 +120,12 @@ export const dateDropdown = styled.div`
   padding-top: .15rem;
   border-right: none;
   margin-top: 7px;
+  &:hover {
+    border-bottom: 2px solid #da3743;
+  };
+  &:focus {
+    border-bottom: 2px solid #da3743;
+  };
 `
 // MAY NEED ANOTHER FONT DIV FOR INSIDE THE BOX
 
@@ -149,6 +161,12 @@ export const timeDropDown = styled.select`
   padding-left: .20rem;
   font-size: 16px;
   font-weight: 400;
+  &:hover {
+    border-bottom: 2px solid #da3743;
+  };
+  &:focus {
+    border-bottom: 2px solid #da3743;
+  };
 `
 export const buttonHolder = styled.div`
   display: flex;
@@ -166,6 +184,9 @@ export const findTable = styled.button`
   border-radius: 3px;
   font-size: 1rem;
   cursor: pointer;
+  &:hover {
+    background-color: #e15b64;
+  }
 `
 
 export const bookHolder = styled.div`

@@ -6,7 +6,6 @@ import PartyDropdown from './PartyDropdown.jsx';
 import Calendar from './Calendar.jsx';
 import TimeDropDown from './TimeDropdown.jsx';
 
-
 class Reservation extends React.Component {
   constructor(props){
     super(props)
@@ -14,11 +13,14 @@ class Reservation extends React.Component {
     this.state = {
       size: "4",
       calendar: false,
-      selectDate: moment().format('ddd, M/D')
+      selectDate: moment().format('ddd, M/D'),
+      time: "09:00:00",
+      randomBooking: ''
     }
     this.partyHandler = this.partyHandler.bind(this);
     this.calRender = this.calRender.bind(this);
     this.dateRender = this.dateRender.bind(this);
+    this.timeHandler = this.timeHandler.bind(this);
   }
 
   // test connection and time retrieval with fake data
@@ -34,6 +36,11 @@ class Reservation extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+
+      let randomNumber = Math.floor(Math.random() * 115) + 21
+      this.setState({
+        randomBooking: randomNumber
+      })
   }
 
   partyHandler(event){
@@ -42,8 +49,10 @@ class Reservation extends React.Component {
     })
   }
 
-  timeHandler(){
-    // TODO
+  timeHandler(event){
+    this.setState({
+      time: event.target.value
+    })
   }
 
   calRender(){
@@ -97,7 +106,7 @@ class Reservation extends React.Component {
 
               <Styles.timeHolder>
                 <Styles.timeFont>Time</Styles.timeFont>
-                <TimeDropDown></TimeDropDown>
+                <TimeDropDown timeHandler={this.timeHandler}></TimeDropDown>
               </Styles.timeHolder>
             </Styles.datetimeHolder>
             
@@ -114,7 +123,7 @@ class Reservation extends React.Component {
         <Styles.bookHolder>
           <Styles.graphic>
           </Styles.graphic>
-          <Styles.bookFont>Booked 60 times today</Styles.bookFont>
+          <Styles.bookFont>Booked {this.state.randomBooking} times today</Styles.bookFont>
         </Styles.bookHolder>
 
         </Styles.subContainer>
