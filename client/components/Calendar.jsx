@@ -20,7 +20,11 @@ class Calendar extends React.Component {
     // renders header section month & buttons
     return(
       <Styles.calHeader>
-        <Styles.headerLeft onClick={() => this.lastMonth()}></Styles.headerLeft>
+        {moment(this.state.currMonth).isSame(moment(), 'month') ? (
+          <Styles.headerLeftPresent></Styles.headerLeftPresent>
+        ) : (
+          <Styles.headerLeft onClick={() => this.lastMonth()}></Styles.headerLeft>
+        )}
         <Styles.monthFont>{moment(this.state.currMonth).format("MMMM YYYY")}</Styles.monthFont>
         <Styles.headerRight onClick={() => {this.nextMonth()}}></Styles.headerRight>
       </Styles.calHeader>
@@ -64,23 +68,37 @@ class Calendar extends React.Component {
         // save each date for click event - otherwise the scope of reference defers to calStart
         // which will be the end of the calendar
         let dateForClick = moment(calStart);
-        
-          // TODO
-          // each day will need click and hover functionality
+          // each present & future day will need click and hover functionality
+          // conditionals for css - check if date is in the past and in the same month
           if (moment(dateForClick).isSame(currMonthStart, 'month')){
-            days.push(
-              <Styles.uniqDaySameMonth key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
-                {calStart.format('D')}
-              </Styles.uniqDaySameMonth>
-            )
+            if(moment(dateForClick).isBefore(moment(), 'day')){
+              days.push(
+                <Styles.uniqDaySameMonthPast>
+                  {calStart.format('D')}
+                </Styles.uniqDaySameMonthPast>
+              )
+            } else {
+              days.push(
+                <Styles.uniqDaySameMonth key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
+                  {calStart.format('D')}
+                </Styles.uniqDaySameMonth>
+              )
+            }
           } else {
+            if(moment(dateForClick).isBefore(moment(), 'day')){
+              days.push(
+                <Styles.uniqDayPast>
+                  {calStart.format('D')}
+                </Styles.uniqDayPast>
+              )
+            } else {
               days.push( 
               <Styles.uniqDay key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
                 {calStart.format('D')}
               </Styles.uniqDay>
               )
+            }
           }
-        
         calStart.add(1, 'day');
       }
       weeks.push(<Styles.weeks>{days}</Styles.weeks>);

@@ -264,6 +264,26 @@ export const headerLeft = styled.div`
   }
 `
 
+export const headerLeftPresent = styled.div`
+  height: 32px;
+  width: 32px;
+  transform: scaleX(-1);
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 6px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
+    viewBox='0 0 5.24 8.07'%3E%3Cg%3E%3Cpath style='fill:%23E1E1E1' d='M5.09 3.68L4.39 3 
+    1.56.15a.5.5 0 0 0-.71 0l-.7.7a.5.5 0 0 0 0 .71L2.62 4 .15 6.51a.5.5 0 0 0 0 
+    .71l.71.71a.5.5 0 0 0 .71 0L4.39 5.1l.71-.71a.5.5 0 0 0-.01-.71z'/%3E%3C/g%3E%3C/svg%3E");
+  box-sizing: border-box;
+  margin: 10px;
+  margin-left: 25px;
+  cursor: default;
+  pointer-events: none;
+`
+
 export const headerRight = styled.div`
   height: 32px;
   width: 32px;
@@ -329,6 +349,21 @@ export const uniqDay = styled.div`
   }
   cursor: pointer;
 `
+export const uniqDayPast = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  color: #d8d9db;
+  pointer-events: none;
+`
 
 export const uniqDaySameMonth = styled.div`
   display: table-cell;
@@ -344,4 +379,22 @@ export const uniqDaySameMonth = styled.div`
   }
   cursor: pointer;
   background-color: #fff;
+`
+
+export const uniqDaySameMonthPast = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  cursor: pointer;
+  background-color: #fff;
+  color: #d8d9db;
+  pointer-events: none;
 `
