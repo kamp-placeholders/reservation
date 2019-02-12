@@ -191,10 +191,11 @@ export const calContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   // width & color subject to change 
-  width: 65%;
+  width: 96%;
   background-color: #f1f2f4;
   -webkit-font-smoothing: anti-aliased;
   border: 1px solid #d8d9db;
+  justify-content: center;
 `
 
 export const calHeader = styled.div`
@@ -227,6 +228,10 @@ export const headerLeft = styled.div`
   box-sizing: border-box;
   margin: 10px;
   margin-left: 25px;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid #da3743;
+  }
 `
 
 export const headerRight = styled.div`
@@ -244,6 +249,10 @@ export const headerRight = styled.div`
   box-sizing: border-box;
   margin: 10px;
   margin-right: 25px;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid #da3743;
+  }
 `
 export const weekContainer = styled.div`
   display: flex;
@@ -251,7 +260,7 @@ export const weekContainer = styled.div`
   margin-left: 5px;
   margin-right: 5px;
   justify-content: space-evenly;
-  line-height: 16px;
+  line-height: 100px;
 `
 export const weekDay = styled.div`
   font-size: .875rem;
@@ -261,6 +270,28 @@ export const weekDay = styled.div`
   color: #2d333f;
 `
 
+// IN MAJOR PROGRESS
 export const cellHolder = styled.div`
-  
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  margin-bottom: 35px
+  width: 90%;
+`
+// IN MAJOR PROGRESS
+export const weeks = styled.div`
+  display: table-row;
+  line-height: 70px;
+`
+
+export const uniqDay = styled.div`
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 1px solid #d8d9db;
+  font-weight: 500;
+  background-clip: padding-box;
+  line-height: 45px;
 `
