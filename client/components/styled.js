@@ -133,20 +133,27 @@ export const timeFont = styled.div`
   padding-bottom: .32rem;
 `
 
-export const timeDropDown = styled.div`
+export const timeDropDown = styled.select`
   cursor: pointer;
   position: relative;
   height: 35px;
   width: 100%;
   box-sizing: border-box;
-  border-bottom: 1px solid #d8d9db;
   padding-top: .15rem;
+  border: none;
   margin-top: 7px;
+  border-bottom: 1px solid #d8d9db;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border-radius: 0;
+  padding-left: .20rem;
+  font-size: 16px;
+  font-weight: 400;
 `
 export const buttonHolder = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 15px;\
+  margin-top: 15px;
 `
 
 export const findTable = styled.button`

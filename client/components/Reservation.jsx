@@ -1,10 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
+import moment from 'moment';
 import * as Styles from './styled.js';
 import PartyDropdown from './PartyDropdown.jsx';
 import Calendar from './Calendar.jsx';
-import moment from 'moment';
+import TimeDropDown from './TimeDropdown.jsx';
+
 
 class Reservation extends React.Component {
   constructor(props){
@@ -39,6 +40,10 @@ class Reservation extends React.Component {
     this.setState({
       size: event.target.value
     })
+  }
+
+  timeHandler(){
+    // TODO
   }
 
   calRender(){
@@ -92,7 +97,7 @@ class Reservation extends React.Component {
 
               <Styles.timeHolder>
                 <Styles.timeFont>Time</Styles.timeFont>
-                <Styles.timeDropDown>Time dropdown goes here</Styles.timeDropDown>
+                <TimeDropDown></TimeDropDown>
               </Styles.timeHolder>
             </Styles.datetimeHolder>
             
