@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as Styles from './styled.js';
 import PartyDropdown from './PartyDropdown.jsx';
 import Calendar from './Calendar.jsx';
+import moment from 'moment';
 
 class Reservation extends React.Component {
   constructor(props){
@@ -11,10 +12,12 @@ class Reservation extends React.Component {
 
     this.state = {
       size: "4",
-      calendar: false
+      calendar: false,
+      selectDate: moment().format('ddd, M/D')
     }
     this.partyHandler = this.partyHandler.bind(this);
     this.calRender = this.calRender.bind(this);
+    this.dateRender = this.dateRender.bind(this);
   }
 
   // test connection and time retrieval with fake data
@@ -39,6 +42,15 @@ class Reservation extends React.Component {
   }
 
   calRender(){
+    this.setState({
+      calendar: !this.state.calendar
+    })
+  }
+
+  dateRender(date){
+    this.setState({
+      selectDate: moment(date).format('ddd, M/D')
+    })
     this.setState({
       calendar: !this.state.calendar
     })
@@ -70,9 +82,9 @@ class Reservation extends React.Component {
             <Styles.datetimeHolder>
               <Styles.dateHolder>
                 <Styles.dateFont>Date</Styles.dateFont>
-                <Styles.dateDropdown onClick={() => {this.calRender()}}>Dropdown goes here</Styles.dateDropdown>
+                <Styles.dateDropdown onClick={() => {this.calRender()}}>{this.state.selectDate}</Styles.dateDropdown>
                 {this.state.calendar ? (
-                  <Calendar />
+                  <Calendar dateRender={this.dateRender}/>
                 ) : (
                   null
                 )}

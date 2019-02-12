@@ -294,4 +294,8 @@ export const uniqDay = styled.div`
   font-weight: 500;
   background-clip: padding-box;
   line-height: 45px;
+  &:hover {
+    border: 1px solid #da3743;
+  }
+  cursor: pointer;
 `

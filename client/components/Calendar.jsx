@@ -61,10 +61,14 @@ class Calendar extends React.Component {
     // empty the days array after each iteration
     while(calStart < calEnd){
       for (let i = 0; i < 7; i++){
+
+        // save each date for click event - otherwise the scope of reference defers to calStart
+        // which will be the end of the calendar
+        let dateForClick = moment(calStart);
         days.push(
           // TODO
           // each day will need click and hover functionality
-          <Styles.uniqDay>
+          <Styles.uniqDay key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
             {calStart.format('D')}
           </Styles.uniqDay>
         )
@@ -94,10 +98,6 @@ class Calendar extends React.Component {
     this.setState({
       currMonth: newMonth
     })
-  }
-
-  selectDate(){
-    // TODO
   }
 
   render(){
