@@ -193,6 +193,11 @@ class Reservation extends React.Component {
           <Styles.bookFont>Booked {this.state.randomBooking} times today</Styles.bookFont>
         </Styles.bookHolder>
 
+          {!this.state.available ? (
+            <Availability.Next>Show next available</Availability.Next>
+          ) : (
+            null
+          )}
         </Styles.subContainer>
       </Styles.Container>
     )

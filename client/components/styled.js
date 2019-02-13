@@ -194,8 +194,9 @@ export const findTable = styled.button`
 
 export const bookHolder = styled.div`
   display: flex;
-  margin-left: 15px;
-  margin-top: 15px;
+  margin-left: 24px;
+  margin-top: 22px;
+  margin-bottom: 18px;
 `
 
 export const graphic = styled.div`

@@ -68,3 +68,21 @@ export const NoGraphic = styled.div`
   background-image: url(https://i.imgur.com/EsED9Mr.png);
   background-size: contain;
 `
+export const Next = styled.button`
+  border: 1px solid #d8d9db;
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 95%;
+  font-weight: 500;
+  color: #2d333f;
+  background-color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  align-items: center;
+  margin: 20px 12px;
+  align-self: center;
+  height: 55px;
+  &:hover {
+    border: 2px solid #da3743;
+  }
+`
