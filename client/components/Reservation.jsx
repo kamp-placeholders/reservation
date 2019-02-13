@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import * as Styles from './styled.js';
+import * as Availability from './styledAvailability.js';
 import PartyDropdown from './PartyDropdown.jsx';
 import Calendar from './Calendar.jsx';
 import TimeDropDown from './TimeDropdown.jsx';
@@ -15,28 +16,21 @@ class Reservation extends React.Component {
       calendar: false,
       selectDate: moment().format('ddd, M/D'),
       time: "09:00:00",
-      randomBooking: ''
+      randomBooking: '',
+      showInitButton: true,
+      available: true
     }
     this.partyHandler = this.partyHandler.bind(this);
     this.calRender = this.calRender.bind(this);
     this.dateRender = this.dateRender.bind(this);
     this.timeHandler = this.timeHandler.bind(this);
+    this.availabilityRender = this.availabilityRender.bind(this);
+    this.timesRender = this.timesRender.bind(this);
+    this.dateSearch = this.dateSearch.bind(this);
   }
 
   // test connection and time retrieval with fake data
   componentDidMount(){
-    axios.get('/api/reservations')
-      .then((response) => {
-        let timeArr = [];
-        response.data.forEach((obj) => {
-          timeArr.push(obj.time);
-        })
-        console.log(timeArr);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
       let randomNumber = Math.floor(Math.random() * 115) + 21
       this.setState({
         randomBooking: randomNumber
@@ -70,8 +64,70 @@ class Reservation extends React.Component {
     })
   }
 
+  dateSearch(){
+    this.setState({
+      showInitButton: true
+    })
+  }
+
   availabilityRender(){
     // TO-DO
+    axios.get('/api/reservations')
+      .then((response) => {
+        let timeArr = [];
+        response.data.forEach((obj) => {
+          timeArr.push(obj.time);
+        })
+        let opening = moment(timeArr[0], 'hh:mm:ss').subtract(1, 's');
+        let closing = moment(timeArr[1], 'hh:mm:ss');
+        let request = moment(this.state.time, 'hh:mm:ss');
+        
+        if(moment(request).isBetween(opening, closing)){
+          this.setState({
+            available: true
+          })
+          this.setState({
+            showInitButton: !this.state.showInitButton
+          })
+        } else {
+          console.log('no availability')
+          this.setState({
+            available: false
+          })
+          this.setState({
+            showInitButton: !this.state.showInitButton
+          })
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  timesRender(){
+    let time = moment(this.state.time, 'HH:mm').format('h:mm A');
+    let shown;
+    if (this.state.available){
+      shown = 
+      <div>
+        <Availability.SelectFont>
+            <span>Select a time:</span>
+          </Availability.SelectFont>
+          <Availability.Date>
+            {time}
+          </Availability.Date>
+      </div>
+    } else {
+      shown = 
+      <div>
+        Not available!
+      </div>
+    }
+    return(
+        <Availability.Holder>
+          {shown}
+        </Availability.Holder>
+    )
   }
 
   render(){
@@ -110,7 +166,7 @@ class Reservation extends React.Component {
 
               <Styles.timeHolder>
                 <Styles.timeFont>Time</Styles.timeFont>
-                <TimeDropDown timeHandler={this.timeHandler}></TimeDropDown>
+                <TimeDropDown buttonDisplay={this.dateSearch} timeHandler={this.timeHandler}></TimeDropDown>
               </Styles.timeHolder>
             </Styles.datetimeHolder>
             
@@ -118,9 +174,13 @@ class Reservation extends React.Component {
 
           {/* button div */}
           <Styles.buttonHolder>
-            <Styles.findTable>
-              <span>Find a Table</span>
-            </Styles.findTable>
+            {this.state.showInitButton ? (
+                  <Styles.findTable onClick={() => {this.availabilityRender()}}>
+                    <span>Find a Table</span>
+                  </Styles.findTable>
+            ) : (
+                this.timesRender()
+              )}
           </Styles.buttonHolder>
 
         {/* Booked X many times - random */}

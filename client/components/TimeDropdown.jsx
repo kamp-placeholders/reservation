@@ -3,10 +3,9 @@ import * as Styles from './styled.js';
 import moment from 'moment';
 
 const TimeDropdown = (props) => {
-
   return(
     <div>
-      <Styles.timeDropDown onChange={(e) => {props.timeHandler(e)}}>
+      <Styles.timeDropDown onChange={(e) => {props.timeHandler(e); props.buttonDisplay()} }>
         <option value="00:00:00">12:00 AM</option>
         <option value="00:30:00">12:30 AM</option>
         <option value="01:00:00">1:00 AM</option>
