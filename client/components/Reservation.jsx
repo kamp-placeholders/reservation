@@ -90,7 +90,6 @@ class Reservation extends React.Component {
             showInitButton: !this.state.showInitButton
           })
         } else {
-          console.log('no availability')
           this.setState({
             available: false
           })
@@ -119,9 +118,13 @@ class Reservation extends React.Component {
       </div>
     } else {
       shown = 
-      <div>
-        Not available!
-      </div>
+      <Availability.NoTimesHolder>
+        <Availability.NoGraphic></Availability.NoGraphic>
+        <Availability.NoTimesFont>
+          At the moment, there's no online availability at {time}. Have 
+          another time in mind?
+        </Availability.NoTimesFont>
+      </Availability.NoTimesHolder>
     }
     return(
         <Availability.Holder>
