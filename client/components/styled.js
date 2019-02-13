@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import moment from 'moment';
 
 // find top fonts
 export const Container = styled.div`
@@ -193,8 +194,9 @@ export const findTable = styled.button`
 
 export const bookHolder = styled.div`
   display: flex;
-  margin-left: 15px;
-  margin-top: 15px;
+  margin-left: 24px;
+  margin-top: 22px;
+  margin-bottom: 18px;
 `
 
 export const graphic = styled.div`
@@ -340,7 +342,6 @@ export const uniqDay = styled.div`
   text-align: center;
   vertical-align: middle;
   box-sizing: border-box;
-  border: 1px solid #d8d9db;
   font-weight: 500;
   background-clip: padding-box;
   line-height: 45px;
@@ -348,7 +349,9 @@ export const uniqDay = styled.div`
     border: 1px solid #da3743;
   }
   cursor: pointer;
+  border: 1px solid #d8d9db;
 `
+
 export const uniqDayPast = styled.div`
   display: table-cell;
   text-align: center;
@@ -398,3 +401,4 @@ export const uniqDaySameMonthPast = styled.div`
   color: #d8d9db;
   pointer-events: none;
 `
+

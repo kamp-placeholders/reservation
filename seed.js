@@ -44,7 +44,7 @@ while(start <= end){
      });
 
      // end date query
-     connection.query(`INSERT INTO reserved(rest_id, date, time) values(${i}, "${formatDate}", "16:00:00")`, (err, results) => {
+     connection.query(`INSERT INTO reserved(rest_id, date, time) values(${i}, "${formatDate}", "20:00:00")`, (err, results) => {
       if(err){
         console.log(err);
       } else {

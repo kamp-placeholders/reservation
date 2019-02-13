@@ -120,7 +120,6 @@ class Calendar extends React.Component {
   }
 
   nextMonth(){
-    // TODO
     const newMonth = moment(this.state.currMonth).add(1, 'month').format("MMMM YYYY");
     this.setState({
       currMonth: newMonth
