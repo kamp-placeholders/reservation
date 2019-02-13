@@ -68,6 +68,9 @@ class Reservation extends React.Component {
     this.setState({
       showInitButton: true
     })
+    this.setState({
+      available: true
+    })
   }
 
   availabilityRender(){
