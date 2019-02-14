@@ -8,8 +8,6 @@ import Calendar from './Calendar.jsx';
 import TimeDropDown from './TimeDropdown.jsx';
 import Spinner from './Spinner.jsx';
 
-
-
 class Reservation extends React.Component {
   constructor(props){
     super(props)
@@ -23,7 +21,8 @@ class Reservation extends React.Component {
       showInitButton: true,
       available: true,
       loading: false,
-      calDate: moment()
+      calDate: moment(),
+      validTimes: []
     }
     this.partyHandler = this.partyHandler.bind(this);
     this.calRender = this.calRender.bind(this);
@@ -95,8 +94,28 @@ class Reservation extends React.Component {
         let opening = moment(timeArr[0], 'hh:mm:ss').subtract(1, 's');
         let closing = moment(timeArr[1], 'hh:mm:ss');
         let request = moment(this.state.time, 'hh:mm:ss');
+
+        // multiple times check for a valid or non-valid input
+        let timesToCheck = [];
+        let validTimesNew = [];
+        let timeMinusHr = moment(this.state.time, 'hh:mm:ss').subtract(1, 'h');
+        let timeMinusThirty = moment(this.state.time, 'hh:mm:ss').subtract(30, 'm');
+        let timePlusHr = moment(this.state.time, 'hh:mm:ss').add(1, 'h');
+        let timePlusThirty = moment(this.state.time, 'hh:mm:ss').add(30, 'm');
+
+        timesToCheck.push(timeMinusHr, timeMinusThirty, request, timePlusThirty, timePlusHr);
+
+        timesToCheck.forEach((timeBlock) => {
+          if(moment(timeBlock).isBetween(opening, closing)){
+            validTimesNew.push(timeBlock)
+          }
+        })
+        this.setState({
+          validTimes: validTimesNew
+        })
         
-        if(moment(request).isBetween(opening, closing)){
+        // set the state of validTimes based on availability within 1 hour range
+        if(this.state.validTimes.length){
           this.setState({
             available: true
           })
@@ -111,6 +130,7 @@ class Reservation extends React.Component {
             showInitButton: !this.state.showInitButton
           })
         }
+
         setTimeout(() => {
           this.setState({
             loading: false
@@ -126,21 +146,28 @@ class Reservation extends React.Component {
     let time = moment(this.state.time, 'HH:mm').format('h:mm A');
     let shown;
     if (this.state.available){
-      shown = 
-      <div>
-        <Availability.SelectFont>
-            <span>Select a time:</span>
-          </Availability.SelectFont>
-          <Availability.Date>
-            {time}
-          </Availability.Date>
-      </div>
+      shown =
+        <div>
+          <Availability.SelectFont>
+              <span>Select a time:</span>
+            </Availability.SelectFont>
+            <Availability.timesHolder>
+              {this.state.validTimes.map((validTime) => {
+                let showTime = moment(validTime, 'HH:mm').format('h:mm A');
+                return (
+                  <Availability.Date>
+                  {showTime}
+                </Availability.Date>
+                )
+              })}
+            </Availability.timesHolder>
+        </div>
     } else {
       shown = 
       <Availability.NoTimesHolder>
         <Availability.NoGraphic></Availability.NoGraphic>
         <Availability.NoTimesFont>
-          At the moment, there's no online availability at {time}. Have 
+          At the moment, there's no online availability within 1 hour of {time}. Have 
           another time in mind?
         </Availability.NoTimesFont>
       </Availability.NoTimesHolder>
