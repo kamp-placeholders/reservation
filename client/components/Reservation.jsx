@@ -6,6 +6,9 @@ import * as Availability from './styledAvailability.js';
 import PartyDropdown from './PartyDropdown.jsx';
 import Calendar from './Calendar.jsx';
 import TimeDropDown from './TimeDropdown.jsx';
+import Spinner from './Spinner.jsx';
+
+
 
 class Reservation extends React.Component {
   constructor(props){
@@ -18,7 +21,9 @@ class Reservation extends React.Component {
       time: "09:00:00",
       randomBooking: '',
       showInitButton: true,
-      available: true
+      available: true,
+      loading: false,
+      calDate: moment()
     }
     this.partyHandler = this.partyHandler.bind(this);
     this.calRender = this.calRender.bind(this);
@@ -60,6 +65,9 @@ class Reservation extends React.Component {
       selectDate: moment(date).format('ddd, M/D')
     })
     this.setState({
+      calDate: moment(date)
+    })
+    this.setState({
       calendar: !this.state.calendar
     })
   }
@@ -74,7 +82,10 @@ class Reservation extends React.Component {
   }
 
   availabilityRender(){
-    // TO-DO
+    this.setState({
+      loading: true
+    })
+  
     axios.get('/api/reservations')
       .then((response) => {
         let timeArr = [];
@@ -100,6 +111,11 @@ class Reservation extends React.Component {
             showInitButton: !this.state.showInitButton
           })
         }
+        setTimeout(() => {
+          this.setState({
+            loading: false
+          })
+        }, 1000)
       })
       .catch((err) => {
         console.log(err);
@@ -164,7 +180,7 @@ class Reservation extends React.Component {
                 <Styles.dateFont>Date</Styles.dateFont>
                 <Styles.dateDropdown onClick={() => {this.calRender()}}>{this.state.selectDate}</Styles.dateDropdown>
                 {this.state.calendar ? (
-                  <Calendar dateRender={this.dateRender}/>
+                  <Calendar selected={this.state.calDate} dateRender={this.dateRender}/>
                 ) : (
                   null
                 )}
@@ -185,6 +201,7 @@ class Reservation extends React.Component {
                     <span>Find a Table</span>
                   </Styles.findTable>
             ) : (
+              this.state.loading ? <Spinner /> :
                 this.timesRender()
               )}
           </Styles.buttonHolder>
@@ -196,7 +213,7 @@ class Reservation extends React.Component {
           <Styles.bookFont>Booked {this.state.randomBooking} times today</Styles.bookFont>
         </Styles.bookHolder>
 
-          {!this.state.available ? (
+          {!this.state.available && !this.state.loading ? (
             <Availability.Next>Show next available</Availability.Next>
           ) : (
             null

@@ -191,6 +191,10 @@ export const findTable = styled.button`
     background-color: #e15b64;
   }
 `
+export const SpinnerHolder = styled.span`
+  align-self: center;
+  margin-top: 3px;
+`
 
 export const bookHolder = styled.div`
   display: flex;
@@ -198,6 +202,7 @@ export const bookHolder = styled.div`
   margin-top: 22px;
   margin-bottom: 18px;
 `
+
 
 export const graphic = styled.div`
   width: 31px;
@@ -378,10 +383,11 @@ export const uniqDaySameMonth = styled.div`
   background-clip: padding-box;
   line-height: 45px;
   &:hover {
-    border: 1px solid #da3743;
+    border: ${props => props.selected ? '2px solid #da3743' : '1px solid #da3743'};
   }
   cursor: pointer;
   background-color: #fff;
+  border: ${props => props.selected ? '2px solid #da3743' : 'null'};
 `
 
 export const uniqDaySameMonthPast = styled.div`
