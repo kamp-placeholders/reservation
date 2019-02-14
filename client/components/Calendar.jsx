@@ -7,7 +7,7 @@ class Calendar extends React.Component {
     super(props)
 
     this.state = {
-      currMonth: new Date(),
+      currMonth: this.props.selected,
     }
     this.renderMonth = this.renderMonth.bind(this);
     this.lastMonth = this.lastMonth.bind(this);
@@ -79,8 +79,10 @@ class Calendar extends React.Component {
               )
             } else {
               days.push(
-                <Styles.uniqDaySameMonth key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
-                  {calStart.format('D')}
+                // TESTING FOR SAME DAY HIGHLIGHTING
+                <Styles.uniqDaySameMonth selected={moment(dateForClick).isSame(this.props.selected, 'day') ? true : false} 
+                  key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
+                    {calStart.format('D')}
                 </Styles.uniqDaySameMonth>
               )
             }
@@ -93,8 +95,9 @@ class Calendar extends React.Component {
               )
             } else {
               days.push( 
-              <Styles.uniqDay key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
-                {calStart.format('D')}
+              <Styles.uniqDay selected={moment(dateForClick).isSame(this.props.selected, 'day') ? true : false}
+                key={i} onClick={() => {this.props.dateRender(dateForClick)}}>
+                  {calStart.format('D')}
               </Styles.uniqDay>
               )
             }
