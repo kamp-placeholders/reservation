@@ -3,10 +3,16 @@ import styled from 'styled-components';
 
 export const Holder = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   margin: 0 17px;
 `
+export const timesHolder = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+`
+
 export const SelectFont = styled.span`
   font-family: BrandonText,-apple-system,BlinkMacSystemFont,Segoe UI,
     Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
@@ -30,6 +36,7 @@ export const Date = styled.button`
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+  margin: 15px 5px 0px 5px;
   padding: 0px 4px;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
