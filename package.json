@@ -14,7 +14,9 @@
     "test": "jest --coverage --verbose --watchAll"
   },
   "dependencies": {
+    "@quickbaseoss/babel-plugin-styled-components-css-namespace": "^0.1.1",
     "bluebird": "^3.5.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "react": "^16.8.1",
@@ -31,6 +33,9 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@quickbaseoss/babel-plugin-styled-components-css-namespace"
     ]
   },
   "devDependencies": {

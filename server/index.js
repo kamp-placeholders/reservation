@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 const dbQuery = require('../database/index.js');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, '../public')));

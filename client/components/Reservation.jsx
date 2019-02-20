@@ -85,7 +85,7 @@ class Reservation extends React.Component {
       loading: true
     })
   
-    axios.get('/api/reservations')
+    axios.get('http://localhost:3000/api/reservations')
       .then((response) => {
         let timeArr = [];
         response.data.forEach((obj) => {
