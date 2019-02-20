@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+// import styled from 'styled-components';
+
+const {styled} = window;
+
 import moment from 'moment';
 
 // find top fonts
@@ -83,7 +86,7 @@ export const partySelect = styled.select`
   border-bottom: 1px solid #d8d9db;
   padding-bottom: 8px;
   -webkit-appearance: none;
-  width: 95%;
+  width: 280px;
   &:hover {
     border-bottom: 2px solid #da3743;
   };
@@ -175,6 +178,7 @@ export const buttonHolder = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
+  margin-right: 20px;
 `
 
 export const findTable = styled.button`
@@ -228,7 +232,7 @@ export const calContainer = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   // width & color subject to change 
-  width: 96%;
+  width: 320px;
   background-color: #f1f2f4;
   -webkit-font-smoothing: anti-aliased;
   border: 1px solid #d8d9db;

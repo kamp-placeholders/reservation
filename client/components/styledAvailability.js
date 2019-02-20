@@ -1,5 +1,6 @@
 // separate styled-components sheet for availabilty rendering logic
-import styled from 'styled-components';
+// import styled from 'styled-components'
+const {styled} = window;
 
 export const Holder = styled.div`
   display: flex;
