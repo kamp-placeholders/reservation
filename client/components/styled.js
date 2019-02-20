@@ -32,7 +32,7 @@ export const ResWriting = styled.div`
   line-height: 25px;
   border-bottom: 1px solid rgb(216, 217, 219);
   margin-left: 15px;
-  margin-right: 15px;
+  margin-right: 45px;
 `
 export const subContainer = styled.div`
   width: 100%;
@@ -142,7 +142,7 @@ export const timeHolder = styled.div`
   flex-grow: 1;
   flex-basis: 50%;
   margin-left: .5rem;
-  margin-right: 15px;
+  margin-right: 40px;
 `
 
 export const timeFont = styled.div`
@@ -155,7 +155,7 @@ export const timeDropDown = styled.select`
   cursor: pointer;
   position: relative;
   height: 35px;
-  width: 100%;
+  width: 140px;
   box-sizing: border-box;
   padding-top: .15rem;
   border: none;

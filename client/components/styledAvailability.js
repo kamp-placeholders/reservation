@@ -10,6 +10,7 @@ export const Holder = styled.div`
 `
 export const timesHolder = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
 `
@@ -62,10 +63,11 @@ export const NoTimesHolder = styled.div`
 `
 export const NoTimesFont = styled.span`
   align-self: center;
-  margin: 1px;
-  font-size: 14px;
+  margin: 3px;
+  padding: 3px;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 20px;
+  line-height: 14px;
 `
 export const NoGraphic = styled.div`
   margin-top: auto;
@@ -75,6 +77,7 @@ export const NoGraphic = styled.div`
   width: 32px;
   background-image: url(https://i.imgur.com/EsED9Mr.png);
   background-size: contain;
+  background-repeat: no-repeat;
 `
 export const Next = styled.button`
   border: 1px solid #d8d9db;
@@ -88,6 +91,7 @@ export const Next = styled.button`
   cursor: pointer;
   align-items: center;
   margin: 20px 12px;
+  margin-right: 40px;
   align-self: center;
   height: 55px;
   &:hover {
