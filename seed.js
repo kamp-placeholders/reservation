@@ -1,8 +1,10 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
+  host: '0.0.0.0',
+  port: 4001,
   user: 'root',
-  password: 'rockets11',
+  password: 'password',
   database: 'reservations'
 });
 

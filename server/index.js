@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const dbQuery = require('../database/index.js');
 const cors = require('cors');
+const {connection} = require('../database/index.js');
 
 const app = express();
 app.use(cors());
@@ -13,7 +14,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/api/reservations', (req, res) => {
   dbQuery.getTimes()
     .then((data) => {
-      console.log(data)
+      console.log(data);
       res.send(data);
     })
     .catch((err) => {

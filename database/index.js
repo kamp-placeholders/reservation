@@ -2,9 +2,12 @@ const mysql = require('mysql');
 const Promise = require('bluebird');
 
 
+
 const connection = mysql.createConnection({
+  host: '172.17.0.2',
+  port: '3306',
   user: 'root',
-  password: 'rockets11',
+  password: 'password',
   database: 'reservations'
 });
 
@@ -26,5 +29,6 @@ const getTimes = () => {
 }
 
 module.exports ={
-  getTimes
+  getTimes,
+  connection
 };
