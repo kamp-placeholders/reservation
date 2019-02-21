@@ -4,7 +4,7 @@ const Promise = require('bluebird');
 
 
 const connection = mysql.createConnection({
-  host: '172.17.0.2',
+  host: 'aaobk5na3i700b.c5tscllfxdsf.us-east-2.rds.amazonaws.com',
   port: '3306',
   user: 'root',
   password: 'password',

@@ -16,7 +16,9 @@ export const Container = styled.div`
     BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica",
     Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   webkit-font-smoothing: antialiased;
-`
+  width: 320px;
+`;
+
 export const Header = styled.div`
   display: flex;
   height: 40px;
@@ -26,28 +28,28 @@ export const Header = styled.div`
   text-align: center;
   padding: 0 1em;
   margin-top: 8px;
-`
+`;
 export const ResWriting = styled.div`
   font-weight: 600px;
   line-height: 25px;
   border-bottom: 1px solid rgb(216, 217, 219);
   margin-left: 15px;
   margin-right: 45px;
-`
+`;
 export const subContainer = styled.div`
   width: 100%;
   padding: 8px 16px 16px 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
+`;
 
 export const funcRow = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-`
+`;
 export const partyHolder = styled.div`
   // display: flex;
   height: 55px;
@@ -58,13 +60,13 @@ export const partyHolder = styled.div`
   margin-right: 15px;
   margin-left: 15px;
   margin-top: 12px;
-`
+`;
 export const partyFont = styled.div`
   font-weight: 675;
   font-size: .850rem;
   padding: .20rem;
   justify-content: flex-start;
-`
+`;
 
 // IN PROGRESS
 export const partySelect = styled.select`
@@ -93,7 +95,7 @@ export const partySelect = styled.select`
   &:focus {
     border-bottom: 2px solid #da3743;
   };
-`
+`;
 
 // IN PROGRESS
 export const datetimeHolder = styled.div`
@@ -102,19 +104,19 @@ export const datetimeHolder = styled.div`
   flex: 1 100%;
   -webkit-box-flex: 1;
   margin-top: 18px;
-`
+`;
 
 export const dateHolder = styled.div`
   flex-grow: 1;
   flex-basis: 50%;
   margin-left: 15px;
-`
+`;
 
 export const dateFont = styled.div`
   font-size: .900rem;
   font-weight: 575;
   padding-bottom: .32rem;
-`
+`;
 
 export const dateDropdown = styled.div`
   cursor: pointer;
@@ -132,7 +134,7 @@ export const dateDropdown = styled.div`
   &:focus {
     border-bottom: 2px solid #da3743;
   };
-`
+`;
 // MAY NEED ANOTHER FONT DIV FOR INSIDE THE BOX
 
 // NEED AN ENTIRE SECTION FOR THE CALENDAR COMPONENT
@@ -143,13 +145,13 @@ export const timeHolder = styled.div`
   flex-basis: 50%;
   margin-left: .5rem;
   margin-right: 40px;
-`
+`;
 
 export const timeFont = styled.div`
   font-size: .900rem;
   font-weight: 575;
   padding-bottom: .32rem;
-`
+`;
 
 export const timeDropDown = styled.select`
   cursor: pointer;
@@ -173,13 +175,13 @@ export const timeDropDown = styled.select`
   &:focus {
     border-bottom: 2px solid #da3743;
   };
-`
+`;
 export const buttonHolder = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
   margin-right: 20px;
-`
+`;
 
 export const findTable = styled.button`
   padding: .75rem 1rem;
@@ -194,18 +196,18 @@ export const findTable = styled.button`
   &:hover {
     background-color: #e15b64;
   }
-`
+`;
 export const SpinnerHolder = styled.span`
   align-self: center;
   margin-top: 3px;
-`
+`;
 
 export const bookHolder = styled.div`
   display: flex;
   margin-left: 24px;
   margin-top: 22px;
   margin-bottom: 18px;
-`
+`;
 
 
 export const graphic = styled.div`
@@ -213,13 +215,13 @@ export const graphic = styled.div`
   height: 24px;
   background-image: url(https://i.imgur.com/7WByhjD.png);
   background-size: contain;
-`
+`;
 export const bookFont = styled.div`
   font-size: 14px;
   line-height: 20px;
   font-weight: 550;
   margin-left: 8px;
-`
+`;
 
 ////////////////////////////////
 // CALENDAR CSS STYLING BELOW //
@@ -237,7 +239,7 @@ export const calContainer = styled.div`
   -webkit-font-smoothing: anti-aliased;
   border: 1px solid #d8d9db;
   justify-content: center;
-`
+`;
 
 export const calHeader = styled.div`
   display: flex;
@@ -247,11 +249,11 @@ export const calHeader = styled.div`
   text-align: center;
   justify-content: space-between;
   align-items: center;
-`
+`;
 export const monthFont = styled.span`
   margin-left: 15px;
   margin-right: 15px;
-`
+`;
 
 export const headerLeft = styled.div`
   height: 32px;
@@ -273,7 +275,7 @@ export const headerLeft = styled.div`
   &:hover {
     border: 2px solid #da3743;
   }
-`
+`;
 
 export const headerLeftPresent = styled.div`
   height: 32px;
@@ -293,7 +295,7 @@ export const headerLeftPresent = styled.div`
   margin-left: 25px;
   cursor: default;
   pointer-events: none;
-`
+`;
 
 export const headerRight = styled.div`
   height: 32px;
@@ -314,7 +316,7 @@ export const headerRight = styled.div`
   &:hover {
     border: 2px solid #da3743;
   }
-`
+`;
 export const weekContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -322,14 +324,14 @@ export const weekContainer = styled.div`
   margin-right: 5px;
   justify-content: space-evenly;
   line-height: 100px;
-`
+`;
 export const weekDay = styled.div`
   font-size: .875rem;
   text-align: center;
   line-height: 16px;
   padding: 3px;
   color: #2d333f;
-`
+`;
 
 // IN MAJOR PROGRESS
 export const cellHolder = styled.div`
@@ -339,12 +341,12 @@ export const cellHolder = styled.div`
   margin-top: 12px;
   margin-bottom: 35px
   width: 90%;
-`
+`;
 // IN MAJOR PROGRESS
 export const weeks = styled.div`
   display: table-row;
   line-height: 70px;
-`
+`;
 
 export const uniqDay = styled.div`
   display: table-cell;
@@ -359,7 +361,7 @@ export const uniqDay = styled.div`
   }
   cursor: pointer;
   border: 1px solid #d8d9db;
-`
+`;
 
 export const uniqDayPast = styled.div`
   display: table-cell;
@@ -375,7 +377,7 @@ export const uniqDayPast = styled.div`
   }
   color: #d8d9db;
   pointer-events: none;
-`
+`;
 
 export const uniqDaySameMonth = styled.div`
   display: table-cell;
@@ -392,7 +394,7 @@ export const uniqDaySameMonth = styled.div`
   cursor: pointer;
   background-color: #fff;
   border: ${props => props.selected ? '2px solid #da3743' : 'null'};
-`
+`;
 
 export const uniqDaySameMonthPast = styled.div`
   display: table-cell;
@@ -410,5 +412,5 @@ export const uniqDaySameMonthPast = styled.div`
   background-color: #fff;
   color: #d8d9db;
   pointer-events: none;
-`
+`;
 
