@@ -93,7 +93,7 @@ class Reservation extends React.Component {
       loading: true
     });
   
-    axios.get(`/times${url}`)
+    axios.get(`http://reservation-dev.us-east-2.elasticbeanstalk.com/times${url}`)
       .then((response) => {
         let timeArr = [];
         response.data.forEach((obj) => {
