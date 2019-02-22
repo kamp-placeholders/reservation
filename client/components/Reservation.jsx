@@ -83,7 +83,7 @@ class Reservation extends React.Component {
 
   availabilityRender() {
     let url;
-    if (window.location.pathname){
+    if (window.location.pathname === '/') {
       url = 1;
     } else {
       url = window.location.pathname;
@@ -233,7 +233,7 @@ class Reservation extends React.Component {
           {/* button div */}
           <Styles.buttonHolder>
             {this.state.showInitButton ? (
-              <Styles.findTable onClick={() => { this.availabilityRender() ;}}>
+              <Styles.findTable onClick={() => { this.availabilityRender(); }}>
                 <span>Find a Table</span>
               </Styles.findTable>
             ) : (
