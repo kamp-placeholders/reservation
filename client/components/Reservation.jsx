@@ -82,12 +82,18 @@ class Reservation extends React.Component {
   }
 
   availabilityRender() {
-    console.log('hello');
+    let url;
+    if (window.location.pathname){
+      url = 1;
+    } else {
+      url = window.location.pathname;
+    }
+    
     this.setState({
       loading: true
     });
   
-    axios.get('/api/reservations')
+    axios.get(`/times${url}`)
       .then((response) => {
         let timeArr = [];
         response.data.forEach((obj) => {

@@ -13,10 +13,10 @@ const connection = mysql.createConnection({
 
 // hard-coded data for now
 // refactor when live-data is used
-const getTimes = () => {
+const getTimes = (restID) => {
   return new Promise((resolve, reject) => {
     connection.query(`select reserved.time from reserved, restaurants 
-      where restaurants.id=95 and 
+      where restaurants.id=${restID} and 
       reserved.rest_id = restaurants.id and  
       reserved.date = '2019-02-20'`, (err, results) => {
         if(err){
