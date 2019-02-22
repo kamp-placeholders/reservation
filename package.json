@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "moment": "^2.24.0",
+    "morgan": "^1.9.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-loader-spinner": "^2.3.0",

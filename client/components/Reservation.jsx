@@ -86,7 +86,7 @@ class Reservation extends React.Component {
     if (window.location.pathname === '/') {
       url = 1;
     } else {
-      let url = window.location.pathname;
+      url = window.location.pathname;
     }
     console.log(url);
 
@@ -94,7 +94,7 @@ class Reservation extends React.Component {
       loading: true
     });
   
-    axios.get(`/${url}`)
+    axios.get(`/times${url}`)
       .then((response) => {
         let timeArr = [];
         response.data.forEach((obj) => {
