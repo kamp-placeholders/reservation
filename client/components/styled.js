@@ -16,6 +16,7 @@ export const Container = styled.div`
     BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica",
     Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   webkit-font-smoothing: antialiased;
+  width: 320px;
 `
 export const Header = styled.div`
   display: flex;

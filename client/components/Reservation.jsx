@@ -8,22 +8,23 @@ import Calendar from './Calendar.jsx';
 import TimeDropDown from './TimeDropdown.jsx';
 import Spinner from './Spinner.jsx';
 
+
 class Reservation extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      size: "4",
+      size: '4',
       calendar: false,
       selectDate: moment().format('ddd, M/D'),
-      time: "09:00:00",
+      time: '09:00:00',
       randomBooking: '',
       showInitButton: true,
       available: true,
       loading: false,
       calDate: moment(),
       validTimes: []
-    }
+    };
     this.partyHandler = this.partyHandler.bind(this);
     this.calRender = this.calRender.bind(this);
     this.dateRender = this.dateRender.bind(this);
@@ -34,63 +35,71 @@ class Reservation extends React.Component {
   }
 
   // test connection and time retrieval with fake data
-  componentDidMount(){
-      let randomNumber = Math.floor(Math.random() * 115) + 21
-      this.setState({
-        randomBooking: randomNumber
-      })
+  componentDidMount() {
+    let randomNumber = Math.floor(Math.random() * 115) + 21;
+    this.setState({
+      randomBooking: randomNumber
+    });
   }
 
-  partyHandler(event){
+  partyHandler(event) {
     this.setState({
       size: event.target.value
-    })
+    });
   }
 
-  timeHandler(event){
+  timeHandler(event) {
     this.setState({
       time: event.target.value
-    })
+    });
   }
 
-  calRender(){
+  calRender() {
     this.setState({
       calendar: !this.state.calendar
-    })
+    });
   }
 
-  dateRender(date){
+  dateRender(date) {
     this.setState({
       selectDate: moment(date).format('ddd, M/D')
-    })
+    });
     this.setState({
       calDate: moment(date)
-    })
+    });
     this.setState({
       calendar: !this.state.calendar
-    })
+    });
   }
 
-  dateSearch(){
+  dateSearch() {
     this.setState({
       showInitButton: true
-    })
+    });
     this.setState({
       available: true
-    })
+    });
   }
 
-  availabilityRender(){
+  availabilityRender() {
+    let url;
+    if (window.location.pathname === '/') {
+      url = 1;
+    } else {
+      let url = window.location.pathname;
+    }
+    console.log(url);
+
     this.setState({
       loading: true
-    })
+    });
   
-    axios.get('http://localhost:3000/api/reservations')
+    axios.get(`/${url}`)
       .then((response) => {
         let timeArr = [];
         response.data.forEach((obj) => {
           timeArr.push(obj.time);
-        })
+        });
         let opening = moment(timeArr[0], 'hh:mm:ss').subtract(1, 's');
         let closing = moment(timeArr[1], 'hh:mm:ss');
         let request = moment(this.state.time, 'hh:mm:ss');
@@ -106,62 +115,62 @@ class Reservation extends React.Component {
         timesToCheck.push(timeMinusHr, timeMinusThirty, request, timePlusThirty, timePlusHr);
 
         timesToCheck.forEach((timeBlock) => {
-          if(moment(timeBlock).isBetween(opening, closing)){
-            validTimesNew.push(timeBlock)
+          if (moment(timeBlock).isBetween(opening, closing)) {
+            validTimesNew.push(timeBlock);
           }
-        })
+        });
         this.setState({
           validTimes: validTimesNew
-        })
+        });
         
         // set the state of validTimes based on availability within 1 hour range
-        if(this.state.validTimes.length){
+        if (this.state.validTimes.length) {
           this.setState({
             available: true
-          })
+          });
           this.setState({
             showInitButton: !this.state.showInitButton
-          })
+          });
         } else {
           this.setState({
             available: false
-          })
+          });
           this.setState({
             showInitButton: !this.state.showInitButton
-          })
+          });
         }
 
         setTimeout(() => {
           this.setState({
             loading: false
-          })
-        }, 1000)
+          });
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  timesRender(){
+  timesRender() {
     let time = moment(this.state.time, 'HH:mm').format('h:mm A');
     let shown;
-    if (this.state.available){
+    if (this.state.available) {
       shown =
         <div>
           <Availability.SelectFont>
-              <span>Select a time:</span>
-            </Availability.SelectFont>
-            <Availability.timesHolder>
-              {this.state.validTimes.map((validTime) => {
-                let showTime = moment(validTime, 'HH:mm').format('h:mm A');
-                return (
-                  <Availability.Date>
+            <span>Select a time:</span>
+          </Availability.SelectFont>
+          <Availability.timesHolder>
+            {this.state.validTimes.map((validTime) => {
+              let showTime = moment(validTime, 'HH:mm').format('h:mm A');
+              return (
+                <Availability.Date>
                   {showTime}
                 </Availability.Date>
-                )
-              })}
-            </Availability.timesHolder>
-        </div>
+              );
+            })}
+          </Availability.timesHolder>
+        </div>;
     } else {
       shown = 
       <Availability.NoTimesHolder>
@@ -170,22 +179,23 @@ class Reservation extends React.Component {
           At the moment, there's no online availability within 1 hour of {time}. Have 
           another time in mind?
         </Availability.NoTimesFont>
-      </Availability.NoTimesHolder>
+      </Availability.NoTimesHolder>;
     }
-    return(
-        <Availability.Holder>
-          {shown}
-        </Availability.Holder>
-    )
+    return (
+      <Availability.Holder>
+        {shown}
+      </Availability.Holder>
+    );
   }
 
-  render(){
-    return(
+  render() {
+    
+    return (
       <Styles.Container>
         {/* header section */}
         <Styles.Header>
           <Styles.ResWriting>
-          <h3>Make a reservation</h3>
+            <h3>Make a reservation</h3>
           </Styles.ResWriting>
         </Styles.Header>
 
@@ -194,18 +204,18 @@ class Reservation extends React.Component {
           {/* functional inputs - party, date, time */}
           <Styles.funcRow>
 
-          {/* Party size in the functional row div - but 
+            {/* Party size in the functional row div - but 
           separate from date/time div */}
             <Styles.partyHolder>
               <Styles.partyFont>Party Size</Styles.partyFont>
-                <PartyDropdown partyHandler={this.partyHandler}></PartyDropdown>
+              <PartyDropdown partyHandler={this.partyHandler}></PartyDropdown>
             </Styles.partyHolder>
 
             {/* date and time are held in their own div in the row */}
             <Styles.datetimeHolder>
               <Styles.dateHolder>
                 <Styles.dateFont>Date</Styles.dateFont>
-                <Styles.dateDropdown onClick={() => {this.calRender()}}>{this.state.selectDate}</Styles.dateDropdown>
+                <Styles.dateDropdown onClick={() => { this.calRender(); }}>{this.state.selectDate}</Styles.dateDropdown>
                 {this.state.calendar ? (
                   <Calendar selected={this.state.calDate} dateRender={this.dateRender}/>
                 ) : (
@@ -224,21 +234,21 @@ class Reservation extends React.Component {
           {/* button div */}
           <Styles.buttonHolder>
             {this.state.showInitButton ? (
-                  <Styles.findTable onClick={() => {this.availabilityRender()}}>
-                    <span>Find a Table</span>
-                  </Styles.findTable>
+              <Styles.findTable onClick={() => { this.availabilityRender(); }}>
+                <span>Find a Table</span>
+              </Styles.findTable>
             ) : (
               this.state.loading ? <Spinner /> :
                 this.timesRender()
-              )}
+            )}
           </Styles.buttonHolder>
 
-        {/* Booked X many times - random */}
-        <Styles.bookHolder>
-          <Styles.graphic>
-          </Styles.graphic>
-          <Styles.bookFont>Booked {this.state.randomBooking} times today</Styles.bookFont>
-        </Styles.bookHolder>
+          {/* Booked X many times - random */}
+          <Styles.bookHolder>
+            <Styles.graphic>
+            </Styles.graphic>
+            <Styles.bookFont>Booked {this.state.randomBooking} times today</Styles.bookFont>
+          </Styles.bookHolder>
 
           {!this.state.available && !this.state.loading ? (
             <Availability.Next>Show next available</Availability.Next>
@@ -247,8 +257,8 @@ class Reservation extends React.Component {
           )}
         </Styles.subContainer>
       </Styles.Container>
-    )
+    );
   }
-};
+}
 
 export default Reservation;
