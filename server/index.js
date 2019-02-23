@@ -4,6 +4,7 @@ const dbQuery = require('../database/index.js');
 const cors = require('cors');
 const {connection} = require('../database/index.js');
 const bodyParser = require('body-parser');
+const compression = require('compression');
 
 const app = express();
 app.use(cors());
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 const port = 3000;
 
 app.use('/:urlID', express.static(path.join(__dirname, '../public')));
+app.use(compression());
 
 // refactor when live-data is inputted
 app.get('/times/:urlID', (req, res) => {
