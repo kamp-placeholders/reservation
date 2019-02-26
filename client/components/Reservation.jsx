@@ -188,7 +188,7 @@ class Reservation extends React.Component {
   }
 
   render() {
-    console.log('render hello');
+    
     return (
       <Styles.Container>
         {/* header section */}

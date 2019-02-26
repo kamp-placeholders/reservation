@@ -11,11 +11,11 @@ app.use(cors());
 app.use(bodyParser.json());
 const port = 3000;
 
-app.use('/:urlID', express.static(path.join(__dirname, '../public')));
+app.use('/restaurants/:urlID', express.static(path.join(__dirname, '../public')));
 app.use(compression());
 
 // refactor when live-data is inputted
-app.get('/times/:urlID', (req, res) => {
+app.get('/times/restaurants/:urlID', (req, res) => {
   let restID = req.params.urlID;
 
   dbQuery.getTimes(restID)
