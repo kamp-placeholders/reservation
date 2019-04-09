@@ -11,7 +11,7 @@ From within the root directoy
 - 'npm run build'
 - 'npm start'
 ```
-Open up localhost:300
+Open up localhost:3000
 
 ## Short Demo
 
