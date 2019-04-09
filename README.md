@@ -1,6 +1,6 @@
 # Reservation
 
-This project is focused on building out the front-end component of a local eateries reservation component. My particular focus was building out the Calendar and reservations module.
+This project is focused on building out the front-end component of a local eateries reservation component. My particular focus was building out the Calendar and Reservations module.
 
 ## Usage
 From within the root directoy
